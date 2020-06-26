@@ -1,1 +1,34 @@
-<チャット画面>
+.chat-main
+  .main-header
+    .main-header__box
+      %p.main-header__box__name
+        test
+      %ul.main-header__box__list
+        Member :
+        %li.main-header__box__member
+        ms 
+        %li.main-header__box__member
+        kazunari
+      = link_to "#", class:"main-header__button" do
+        Edit
+        
+  .main-chat
+    .main-chat__box
+      .main-chat__box__info
+        .main-chat__box__info__username
+          masa
+        .main-chat__box__info__date
+          2019/11/20(Wed) 17:43:01 
+      .main-chat__box__message
+        %p.main-chat__box__message__content
+          おはよう！       
+
+  .main-form
+    %form.new_message
+      .input-box
+        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+        %label{class: "input-box__image"}
+          = icon('fas', 'image')
+          %input{type: "file", class: "input-box__image__file"}
+      %input{type: "submit", class: "submit-btn"}
+
