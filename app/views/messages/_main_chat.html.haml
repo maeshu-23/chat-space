@@ -2,33 +2,35 @@
   .main-header
     .main-header__box
       %p.main-header__box__name
-        test
+        = @group.name
       %ul.main-header__box__list
         Member :
-        %li.main-header__box__member
-        ms 
-        %li.main-header__box__member
-        kazunari
-      = link_to "#", class:"main-header__button" do
+        - @group.users.each do |user|
+          = user.name
+      = link_to edit_group_path(@group.id), class:"main-header__button" do
         Edit
         
   .main-chat
     .main-chat__box
-      .main-chat__box__info
-        .main-chat__box__info__username
-          masa
-        .main-chat__box__info__date
-          2019/11/20(Wed) 17:43:01 
-      .main-chat__box__message
-        %p.main-chat__box__message__content
-          おはよう！       
+      = render @messages
 
   .main-form
-    %form.new_message
+    = form_with model: [@group, @message], html: {class: "new_message"}, local: true do |f|
       .input-box
-        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-        %label{class: "input-box__image"}
+        = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+        = f.label :image, class: 'input-box__image' do
           = icon('fas', 'image')
-          %input{type: "file", class: "input-box__image__file"}
-      %input{type: "submit", class: "submit-btn"}
+          = f.file_field :image, class: 'input-box__image__file'
+      = f.submit 'Send', class: 'submit-btn'
+
+
+
+  -# .main-form
+  -#   %form.new_message
+  -#     .input-box
+  -#       %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+  -#       %label{class: "input-box__image"}
+  -#         = icon('fas', 'image')
+  -#         %input{type: "file", class: "input-box__image__file"}
+  -#     %input{type: "submit", class: "submit-btn"}
 
