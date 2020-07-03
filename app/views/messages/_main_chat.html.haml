@@ -11,8 +11,7 @@
         Edit
         
   .main-chat
-    .main-chat__box
-      = render @messages
+    = render @messages
 
   .main-form
     = form_with model: [@group, @message], html: {class: "new_message"}, local: true do |f|

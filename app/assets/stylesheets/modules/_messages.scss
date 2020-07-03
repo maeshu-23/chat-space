@@ -133,28 +133,24 @@
 
 
 .main-chat {
-  width: calc(100vw - 300px);
   height: calc(100vh - 100px - 90px);
   background-color: #fafafa;
-  
-  &__box {
-    background-color: #fafafa;
-    box-sizing: border-box;
-    padding: 35px 40px 0;
-    height: calc(100vh - 100px - 90px);
-    overflow: scroll;
-  }
+  padding: 35px 40px 0;
+  overflow: scroll;
+  box-sizing: border-box;
 }
 
-.main-chat__box__info {
+.messageBox {
+  margin-bottom: 46px;
+}
+
+.messageInfo {
   display: flex;
-  
   &__username {
     color: #434a54;
     font-size: 16px;
     font-weight: bold;
   }
-  
   &__date {
     color: #999;
     font-size: 12px;
@@ -162,13 +158,16 @@
   }
 }
 
-.main-chat__box__message {
+.Message {
   margin-top: 12px;
   &__content {
     color: #434a54;
     font-size: 14px;
   }
-}
+  &__image{
+    height: 300px;
+  }
+} 
 
 .main-form {
   width: calc(100vw - 300px);
